@@ -1,113 +1,106 @@
-import Image from 'next/image'
+import Link from "next/link";
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">app/page.tsx</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:h-auto lg:w-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
+    <main style={{fontFamily:"system-ui,sans-serif",background:"#0a0a0a"}}>
+
+      {/* Navbar */}
+      <nav style={{background:"#0a0a0a",borderBottom:"1px solid #1f2937",padding:"16px 24px",display:"flex",alignItems:"center",justifyContent:"space-between",position:"sticky",top:0,zIndex:50}}>
+        <div style={{color:"#f97316",fontWeight:"900",fontSize:"18px"}}>
+          CHUKWUJEKWU <span style={{color:"white",fontSize:"14px"}}>RE</span>
         </div>
-      </div>
+        <div style={{display:"flex",gap:"16px",alignItems:"center"}}>
+          <Link href="/listings" style={{color:"#d1d5db",textDecoration:"none",fontSize:"14px"}}>Listings</Link>
+          <Link href="/agents" style={{color:"#d1d5db",textDecoration:"none",fontSize:"14px"}}>Agents</Link>
+          <Link href="/contact" style={{color:"#d1d5db",textDecoration:"none",fontSize:"14px"}}>Contact</Link>
+          <Link href="/login" style={{background:"#ea580c",color:"white",padding:"8px 16px",borderRadius:"8px",textDecoration:"none",fontWeight:"bold",fontSize:"14px"}}>Login</Link>
+        </div>
+      </nav>
 
-      <div className="relative flex place-items-center before:absolute before:h-[300px] before:w-[480px] before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-[240px] after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 before:lg:h-[360px] z-[-1]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className="mb-32 grid text-center lg:max-w-5xl lg:w-full lg:mb-0 lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Docs{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Find in-depth information about Next.js features and API.
+      {/* Hero */}
+      <section style={{background:"linear-gradient(135deg,#0a0a0a,#1c0a00)",minHeight:"90vh",display:"flex",alignItems:"center",justifyContent:"center",textAlign:"center",padding:"40px 20px"}}>
+        <div style={{maxWidth:"600px"}}>
+          <p style={{color:"#f97316",fontWeight:"600",letterSpacing:"4px",fontSize:"12px",marginBottom:"16px"}}>NIGERIA PREMIER REAL ESTATE</p>
+          <h1 style={{color:"white",fontSize:"clamp(32px,8vw,64px)",fontWeight:"900",lineHeight:"1.1",marginBottom:"20px"}}>
+            Find Your Perfect<br/>
+            <span style={{color:"#f97316"}}>Property</span>
+          </h1>
+          <p style={{color:"#9ca3af",fontSize:"16px",marginBottom:"40px",lineHeight:"1.6"}}>
+            Discover verified properties across Lagos, Abuja, Port Harcourt and beyond. Trusted by 10,000+ Nigerians.
           </p>
-        </a>
+          <div style={{display:"flex",gap:"16px",justifyContent:"center",flexWrap:"wrap"}}>
+            <Link href="/listings" style={{background:"#ea580c",color:"white",padding:"14px 28px",borderRadius:"12px",fontWeight:"bold",textDecoration:"none",fontSize:"16px"}}>
+              Browse Properties
+            </Link>
+            <Link href="/contact" style={{border:"2px solid #ea580c",color:"#f97316",padding:"14px 28px",borderRadius:"12px",fontWeight:"bold",textDecoration:"none",fontSize:"16px"}}>
+              Contact Us
+            </Link>
+          </div>
+        </div>
+      </section>
 
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Learn{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
+      {/* Stats */}
+      <section style={{background:"#111827",padding:"60px 20px"}}>
+        <div style={{maxWidth:"800px",margin:"0 auto",display:"grid",gridTemplateColumns:"repeat(2,1fr)",gap:"20px"}}>
+          {[["5,000+","Properties"],["10,000+","Happy Clients"],["200+","Agents"],["15+","Years Exp"]].map((s,i)=>(
+            <div key={i} style={{background:"#1f2937",borderRadius:"16px",padding:"28px",textAlign:"center"}}>
+              <p style={{color:"#f97316",fontSize:"32px",fontWeight:"900",margin:"0 0 6px"}}>{s[0]}</p>
+              <p style={{color:"#9ca3af",margin:0,fontSize:"14px"}}>{s[1]}</p>
+            </div>
+          ))}
+        </div>
+      </section>
 
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Templates{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Explore the Next.js 13 playground.
-          </p>
-        </a>
+      {/* Property Types */}
+      <section style={{background:"#0a0a0a",padding:"60px 20px"}}>
+        <div style={{maxWidth:"800px",margin:"0 auto"}}>
+          <p style={{color:"#f97316",textAlign:"center",fontWeight:"600",letterSpacing:"3px",fontSize:"12px",marginBottom:"12px"}}>CATEGORIES</p>
+          <h2 style={{color:"white",fontSize:"32px",fontWeight:"bold",textAlign:"center",marginBottom:"36px"}}>Browse by Type</h2>
+          <div style={{display:"grid",gridTemplateColumns:"repeat(2,1fr)",gap:"16px"}}>
+            {[["Houses","🏠","Family homes & duplexes","house"],["Apartments","🏢","Modern flats","apartment"],["Land","🌍","Prime plots of land","land"],["Shops","🏪","Commercial spaces","shop"]].map((p,i)=>(
+              <Link key={i} href={"/listings?type="+p[3]} style={{background:"#1f2937",borderRadius:"16px",padding:"28px 20px",textAlign:"center",textDecoration:"none",display:"block",border:"1px solid #374151"}}>
+                <p style={{fontSize:"40px",margin:"0 0 10px"}}>{p[1]}</p>
+                <p style={{color:"white",fontWeight:"bold",fontSize:"18px",margin:"0 0 6px"}}>{p[0]}</p>
+                <p style={{color:"#6b7280",margin:0,fontSize:"13px"}}>{p[2]}</p>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
 
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Deploy{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
+      {/* Why Choose Us */}
+      <section style={{background:"#111827",padding:"60px 20px"}}>
+        <div style={{maxWidth:"800px",margin:"0 auto"}}>
+          <h2 style={{color:"white",fontSize:"32px",fontWeight:"bold",textAlign:"center",marginBottom:"36px"}}>Why Choose Us</h2>
+          <div style={{display:"grid",gridTemplateColumns:"repeat(2,1fr)",gap:"16px"}}>
+            {[["✅","Verified","All properties verified"],["🔒","Secure","Safe transactions"],["⚡","Fast","Quick deals"],["🤝","Trusted","10k+ satisfied clients"]].map((w,i)=>(
+              <div key={i} style={{background:"#1f2937",borderRadius:"16px",padding:"24px",textAlign:"center"}}>
+                <p style={{fontSize:"32px",margin:"0 0 10px"}}>{w[0]}</p>
+                <p style={{color:"white",fontWeight:"bold",margin:"0 0 6px"}}>{w[1]}</p>
+                <p style={{color:"#6b7280",fontSize:"13px",margin:0}}>{w[2]}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Contact CTA */}
+      <section style={{background:"#ea580c",padding:"60px 20px",textAlign:"center"}}>
+        <h2 style={{color:"white",fontSize:"28px",fontWeight:"bold",marginBottom:"16px"}}>Ready to Find Your Dream Property?</h2>
+        <p style={{color:"#fed7aa",marginBottom:"32px"}}>Talk to our expert agents today</p>
+        <Link href="/contact" style={{background:"white",color:"#ea580c",padding:"14px 32px",borderRadius:"12px",fontWeight:"bold",textDecoration:"none",fontSize:"16px"}}>
+          Get In Touch
+        </Link>
+      </section>
+
+      {/* Footer */}
+      <footer style={{background:"#030712",borderTop:"1px solid #1f2937",padding:"40px 20px",textAlign:"center"}}>
+        <p style={{color:"#f97316",fontWeight:"bold",fontSize:"18px",marginBottom:"8px"}}>CHUKWUJEKWU Real Estate</p>
+        <p style={{color:"#6b7280",fontSize:"14px",marginBottom:"8px"}}>Nigeria Development Company</p>
+        <p style={{color:"#374151",fontSize:"12px"}}>15 Broad Street, Lagos Island, Lagos Nigeria</p>
+        <p style={{color:"#374151",fontSize:"12px",marginTop:"16px"}}>© 2025 All rights reserved</p>
+      </footer>
+
     </main>
-  )
+  );
 }
