@@ -9,7 +9,7 @@ const supabase = createClient(
 );
 
 export default function ListingsPage() {
-  const [properties, setProperties] = useState([]);
+  const [properties, setProperties] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
   const [location, setLocation] = useState("");
