@@ -15,8 +15,8 @@ export default function LoginPage() {
     setLoading(true);
     setError("");
     const supabase = createClient(
-      process.env.NEXT_PUBLIC_SUPABASE_URL,
-      process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
+      process.env.NEXT_PUBLIC_SUPABASE_URL!,
+      process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
     );
     const { error: err } = await supabase.auth.signInWithPassword({ email, password });
     setLoading(false);
