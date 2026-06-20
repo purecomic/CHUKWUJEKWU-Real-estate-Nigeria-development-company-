@@ -6,6 +6,7 @@ export default function AdminSettings() {
     {title:"Inquiries",desc:"View contact messages from visitors",href:"/admin/inquiries",emoji:"✉️"},
     {title:"Users",desc:"View registered users",href:"/admin/users",emoji:"👤"},
     {title:"Notifications",desc:"Send notifications to users",href:"/admin/notifications",emoji:"🔔"},
+    {title:"Commission",desc:"Edit agent commission rate",href:"/admin/commission",emoji:"💰"},
   ];
   return (
     <div style={{padding:"24px",background:"#0f172a",minHeight:"100vh",color:"white",fontFamily:"system-ui,sans-serif"}}>
