@@ -1,52 +1,63 @@
+"use client";
+import { useState, useEffect } from "react";
+import { createClient } from "@supabase/supabase-js";
+
+const supabase = createClient(process.env.NEXT_PUBLIC_SUPABASE_URL!, process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!);
+
 export default function AgentsPage() {
-  const agents = [
-    {name:"Emeka Okafor",role:"Senior Property Agent",location:"Lagos",phone:"+234 801 234 5678",email:"emeka@chukwujekwu.com",listings:12,emoji:"👨"},
-    {name:"Amina Bello",role:"Property Agent",location:"Abuja",phone:"+234 802 345 6789",email:"amina@chukwujekwu.com",listings:8,emoji:"👩"},
-    {name:"Chidi Nwosu",role:"Commercial Agent",location:"Port Harcourt",phone:"+234 803 456 7890",email:"chidi@chukwujekwu.com",listings:15,emoji:"👨"},
-    {name:"Fatima Aliyu",role:"Property Agent",location:"Kano",phone:"+234 804 567 8901",email:"fatima@chukwujekwu.com",listings:6,emoji:"👩"},
-  ];
+  const [agents, setAgents] = useState<any[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(()=>{
+    const load = async () => {
+      const { data } = await supabase.from("agents").select("*").order("created_at",{ascending:false});
+      setAgents(data||[]);
+      setLoading(false);
+    };
+    load();
+  },[]);
+
   return (
-    <main style={{background:"#0a0a0a",minHeight:"100vh",fontFamily:"system-ui,sans-serif"}}>
-      <nav style={{background:"#0a0a0a",borderBottom:"1px solid #1f2937",padding:"16px 20px",display:"flex",justifyContent:"space-between",alignItems:"center",position:"sticky",top:0,zIndex:50}}>
-        <a href="/" style={{color:"#f97316",fontWeight:"900",fontSize:"16px",textDecoration:"none"}}>CHUKWUJEKWU RE</a>
-        <div style={{display:"flex",gap:"16px"}}>
-          <a href="/listings" style={{color:"#d1d5db",textDecoration:"none",fontSize:"14px"}}>Listings</a>
-          <a href="/contact" style={{color:"#d1d5db",textDecoration:"none",fontSize:"14px"}}>Contact</a>
+    <main style={{fontFamily:"system-ui,sans-serif",background:"#f8fafc",minHeight:"100vh"}}>
+      <nav style={{background:"rgba(255,255,255,0.95)",borderBottom:"1px solid #e2e8f0",padding:"0 24px",display:"flex",alignItems:"center",justifyContent:"space-between",position:"fixed",top:0,left:0,right:0,zIndex:100,height:"64px",boxShadow:"0 1px 3px rgba(0,0,0,0.08)"}}>
+        <a href="/" style={{display:"flex",alignItems:"center",gap:"8px",textDecoration:"none"}}>
+          <div style={{width:"32px",height:"32px",background:"linear-gradient(135deg,#1e40af,#3b82f6)",borderRadius:"8px",display:"flex",alignItems:"center",justifyContent:"center"}}><span style={{color:"white",fontWeight:"900",fontSize:"14px"}}>C</span></div>
+          <div><p style={{color:"#1e40af",fontWeight:"800",fontSize:"13px",margin:0}}>CHUKWUJEKWU</p><p style={{color:"#94a3b8",fontSize:"10px",margin:0}}>REAL ESTATE</p></div>
+        </a>
+        <div style={{display:"flex",alignItems:"center",gap:"20px"}}>
+          <a href="/listings" style={{color:"#475569",textDecoration:"none",fontSize:"13px",fontWeight:"500"}}>Listings</a>
+          <a href="/agents" style={{color:"#1e40af",textDecoration:"none",fontSize:"13px",fontWeight:"700"}}>Agents</a>
+          <a href="/contact" style={{color:"#475569",textDecoration:"none",fontSize:"13px",fontWeight:"500"}}>Contact</a>
+          <a href="/login" style={{background:"#1e40af",color:"white",padding:"8px 18px",borderRadius:"8px",textDecoration:"none",fontWeight:"600",fontSize:"13px"}}>Login</a>
         </div>
       </nav>
-      <div style={{background:"#111827",padding:"40px 20px",textAlign:"center"}}>
-        <h1 style={{color:"white",fontSize:"32px",fontWeight:"bold",margin:"0 0 8px"}}>Our Agents</h1>
-        <p style={{color:"#6b7280",margin:0}}>Meet our expert real estate professionals</p>
-      </div>
-      <div style={{maxWidth:"800px",margin:"0 auto",padding:"24px 20px"}}>
-        <div style={{display:"grid",gap:"16px"}}>
-          {agents.map((a,i)=>(
-            <div key={i} style={{background:"#1f2937",borderRadius:"16px",padding:"20px",border:"1px solid #374151"}}>
-              <div style={{display:"flex",alignItems:"center",gap:"16px",marginBottom:"16px"}}>
-                <div style={{width:"64px",height:"64px",background:"#ea580c",borderRadius:"50%",display:"flex",alignItems:"center",justifyContent:"center",fontSize:"28px",flexShrink:0}}>{a.emoji}</div>
-                <div style={{flex:1}}>
-                  <h3 style={{color:"white",fontWeight:"bold",fontSize:"18px",margin:"0 0 4px"}}>{a.name}</h3>
-                  <p style={{color:"#f97316",fontSize:"13px",margin:"0 0 2px"}}>{a.role}</p>
-                  <p style={{color:"#6b7280",fontSize:"13px",margin:0}}>📍 {a.location}</p>
+      <div style={{paddingTop:"64px"}}>
+        <div style={{background:"linear-gradient(135deg,#eff6ff,#dbeafe)",padding:"48px 20px",textAlign:"center"}}>
+          <p style={{color:"#2563eb",fontWeight:"700",letterSpacing:"2px",fontSize:"11px",marginBottom:"8px"}}>OUR TEAM</p>
+          <h1 style={{color:"#0f172a",fontSize:"28px",fontWeight:"800",margin:"0 0 8px"}}>Meet Our Agents</h1>
+          <p style={{color:"#64748b",margin:0,fontSize:"14px"}}>Expert real estate professionals ready to help you</p>
+        </div>
+        <div style={{maxWidth:"900px",margin:"0 auto",padding:"40px 20px"}}>
+          {loading ? <p style={{textAlign:"center",color:"#64748b"}}>Loading agents...</p> : (
+            <div style={{display:"grid",gridTemplateColumns:"repeat(auto-fill,minmax(260px,1fr))",gap:"20px"}}>
+              {agents.map((a,i)=>(
+                <div key={i} style={{background:"white",borderRadius:"16px",padding:"28px 20px",textAlign:"center",border:"1px solid #e2e8f0",boxShadow:"0 1px 3px rgba(0,0,0,0.04)"}}>
+                  {a.image_url ? <img src={a.image_url} alt={a.name} style={{width:"80px",height:"80px",borderRadius:"50%",objectFit:"cover",margin:"0 auto 16px",display:"block",border:"3px solid #dbeafe"}} /> : <div style={{width:"80px",height:"80px",borderRadius:"50%",background:"linear-gradient(135deg,#1e40af,#3b82f6)",display:"flex",alignItems:"center",justifyContent:"center",margin:"0 auto 16px"}}><span style={{color:"white",fontSize:"28px",fontWeight:"800"}}>{(a.name||"A")[0]}</span></div>}
+                  <p style={{color:"#0f172a",fontWeight:"700",margin:"0 0 4px",fontSize:"16px"}}>{a.name}</p>
+                  <p style={{color:"#2563eb",fontSize:"12px",fontWeight:"600",margin:"0 0 4px"}}>{a.specialty||a.role}</p>
+                  <p style={{color:"#94a3b8",fontSize:"12px",margin:"0 0 16px"}}>📍 {a.location||"Nigeria"}</p>
+                  <div style={{display:"flex",gap:"8px",justifyContent:"center"}}>
+                    {a.phone && <a href={"tel:"+a.phone} style={{background:"#eff6ff",color:"#1e40af",padding:"8px 16px",borderRadius:"8px",textDecoration:"none",fontSize:"12px",fontWeight:"600"}}>📞 Call</a>}
+                    {a.email && <a href={"mailto:"+a.email} style={{background:"#1e40af",color:"white",padding:"8px 16px",borderRadius:"8px",textDecoration:"none",fontSize:"12px",fontWeight:"600"}}>✉️ Email</a>}
+                  </div>
                 </div>
-                <div style={{background:"#111827",borderRadius:"10px",padding:"8px 14px",textAlign:"center"}}>
-                  <p style={{color:"#f97316",fontWeight:"bold",fontSize:"20px",margin:"0 0 2px"}}>{a.listings}</p>
-                  <p style={{color:"#6b7280",fontSize:"11px",margin:0}}>Listings</p>
-                </div>
-              </div>
-              <div style={{display:"flex",gap:"10px"}}>
-                <a href={"tel:"+a.phone} style={{flex:1,background:"#ea580c",color:"white",padding:"12px",borderRadius:"10px",textDecoration:"none",fontWeight:"bold",textAlign:"center",fontSize:"14px"}}>Call</a>
-                <a href={"https://wa.me/"+a.phone.replace(/\D/g,"")} target="_blank" style={{flex:1,background:"#16a34a",color:"white",padding:"12px",borderRadius:"10px",textDecoration:"none",fontWeight:"bold",textAlign:"center",fontSize:"14px"}}>WhatsApp</a>
-                <a href={"mailto:"+a.email} style={{flex:1,background:"#111827",color:"white",padding:"12px",borderRadius:"10px",textDecoration:"none",fontWeight:"bold",textAlign:"center",fontSize:"14px",border:"1px solid #374151"}}>Email</a>
-              </div>
+              ))}
+              {agents.length===0 && !loading && <p style={{color:"#94a3b8",textAlign:"center",gridColumn:"1/-1"}}>No agents found.</p>}
             </div>
-          ))}
+          )}
         </div>
       </div>
-      <footer style={{background:"#030712",padding:"24px",textAlign:"center",marginTop:"40px"}}>
-        <p style={{color:"#f97316",fontWeight:"bold",margin:"0 0 4px"}}>CHUKWUJEKWU Real Estate</p>
-        <p style={{color:"#374151",fontSize:"12px",margin:0}}>2025 All rights reserved</p>
-      </footer>
+      <footer style={{background:"#0f172a",padding:"32px 20px",textAlign:"center"}}><p style={{color:"#475569",fontSize:"12px",margin:0}}>© 2025 CHUKWUJEKWU Real Estate. All rights reserved.</p></footer>
     </main>
   );
 }
