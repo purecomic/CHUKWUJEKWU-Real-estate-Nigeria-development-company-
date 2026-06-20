@@ -5,21 +5,18 @@ export default function Home() {
     <main style={{fontFamily:"'Segoe UI',system-ui,sans-serif",background:"#ffffff",scrollBehavior:"smooth"}}>
 
       {/* Navbar */}
-      <nav style={{background:"rgba(255,255,255,0.95)",backdropFilter:"blur(10px)",borderBottom:"1px solid #e2e8f0",padding:"0 24px",display:"flex",alignItems:"center",justifyContent:"space-between",position:"fixed",top:0,left:0,right:0,zIndex:100,height:"64px",boxShadow:"0 1px 3px rgba(0,0,0,0.08)"}}>
-        <div style={{display:"flex",alignItems:"center",gap:"8px"}}>
-          <div style={{width:"32px",height:"32px",background:"linear-gradient(135deg,#1e40af,#3b82f6)",borderRadius:"8px",display:"flex",alignItems:"center",justifyContent:"center"}}>
-            <span style={{color:"white",fontWeight:"900",fontSize:"14px"}}>C</span>
+      <nav style={{background:"rgba(255,255,255,0.97)",borderBottom:"1px solid #e2e8f0",padding:"0 16px",display:"flex",alignItems:"center",justifyContent:"space-between",position:"fixed",top:0,left:0,right:0,zIndex:100,height:"56px",boxShadow:"0 1px 3px rgba(0,0,0,0.08)"}}>
+        <a href="/" style={{display:"flex",alignItems:"center",gap:"6px",textDecoration:"none",flexShrink:0}}>
+          <div style={{width:"28px",height:"28px",background:"linear-gradient(135deg,#1e40af,#3b82f6)",borderRadius:"6px",display:"flex",alignItems:"center",justifyContent:"center"}}>
+            <span style={{color:"white",fontWeight:"900",fontSize:"12px"}}>C</span>
           </div>
-          <div>
-            <p style={{color:"#1e40af",fontWeight:"800",fontSize:"13px",margin:0,letterSpacing:"0.5px"}}>CHUKWUJEKWU</p>
-            <p style={{color:"#94a3b8",fontSize:"10px",margin:0,letterSpacing:"1px"}}>REAL ESTATE</p>
-          </div>
-        </div>
-        <div style={{display:"flex",alignItems:"center",gap:"24px"}}>
-          <Link href="/listings" style={{color:"#475569",textDecoration:"none",fontSize:"13px",fontWeight:"500"}}>Listings</Link>
-          <Link href="/agents" style={{color:"#475569",textDecoration:"none",fontSize:"13px",fontWeight:"500"}}>Agents</Link>
-          <Link href="/contact" style={{color:"#475569",textDecoration:"none",fontSize:"13px",fontWeight:"500"}}>Contact</Link>
-          <Link href="/login" style={{background:"#1e40af",color:"white",padding:"8px 18px",borderRadius:"8px",textDecoration:"none",fontWeight:"600",fontSize:"13px"}}>Login</Link>
+          <p style={{color:"#1e40af",fontWeight:"800",fontSize:"11px",margin:0}}>CHUKWUJEKWU RE</p>
+        </a>
+        <div style={{display:"flex",alignItems:"center",gap:"12px"}}>
+          <Link href="/listings" style={{color:"#475569",textDecoration:"none",fontSize:"11px",fontWeight:"500"}}>Listings</Link>
+          <Link href="/agents" style={{color:"#475569",textDecoration:"none",fontSize:"11px",fontWeight:"500"}}>Agents</Link>
+          <Link href="/contact" style={{color:"#475569",textDecoration:"none",fontSize:"11px",fontWeight:"500"}}>Contact</Link>
+          <Link href="/login" style={{background:"#1e40af",color:"white",padding:"6px 12px",borderRadius:"6px",textDecoration:"none",fontWeight:"600",fontSize:"11px",flexShrink:0}}>Login</Link>
         </div>
       </nav>
 
