@@ -6,18 +6,17 @@ export default function Home() {
 
       {/* Navbar */}
       <nav style={{background:"rgba(255,255,255,0.97)",borderBottom:"1px solid #e2e8f0",position:"fixed",top:0,left:0,right:0,zIndex:100,boxShadow:"0 1px 3px rgba(0,0,0,0.08)"}}>
-        <div style={{display:"flex",alignItems:"center",overflowX:"auto",scrollbarWidth:"none",WebkitOverflowScrolling:"touch",padding:"0 16px",height:"56px",gap:"20px",whiteSpace:"nowrap"}}>
-          <a href="/" style={{display:"flex",alignItems:"center",gap:"6px",textDecoration:"none",flexShrink:0}}>
-            <div style={{width:"26px",height:"26px",background:"linear-gradient(135deg,#1e40af,#3b82f6)",borderRadius:"6px",display:"flex",alignItems:"center",justifyContent:"center",flexShrink:0}}>
+        <div style={{display:"flex",alignItems:"center",overflowX:"auto",padding:"0 16px",height:"56px",gap:"16px"}}>
+          <Link href="/" style={{display:"flex",alignItems:"center",gap:"6px",textDecoration:"none",flexShrink:0}}>
+            <div style={{width:"26px",height:"26px",background:"linear-gradient(135deg,#1e40af,#3b82f6)",borderRadius:"6px",display:"flex",alignItems:"center",justifyContent:"center"}}>
               <span style={{color:"white",fontWeight:"900",fontSize:"11px"}}>C</span>
             </div>
             <p style={{color:"#1e40af",fontWeight:"800",fontSize:"11px",margin:0,whiteSpace:"nowrap"}}>CHUKWUJEKWU RE</p>
-          </a>
-          <div style={{width:"1px",height:"20px",background:"#e2e8f0",flexShrink:0}}></div>
-          <Link href="/listings" style={{color:"#475569",textDecoration:"none",fontSize:"12px",fontWeight:"500",flexShrink:0}}>Listings</Link>
-          <Link href="/agents" style={{color:"#475569",textDecoration:"none",fontSize:"12px",fontWeight:"500",flexShrink:0}}>Agents</Link>
-          <Link href="/contact" style={{color:"#475569",textDecoration:"none",fontSize:"12px",fontWeight:"500",flexShrink:0}}>Contact</Link>
-          <Link href="/login" style={{background:"#1e40af",color:"white",padding:"6px 14px",borderRadius:"6px",textDecoration:"none",fontWeight:"600",fontSize:"12px",flexShrink:0}}>Login</Link>
+          </Link>
+          <Link href="/listings" style={{color:"#475569",textDecoration:"none",fontSize:"12px",fontWeight:"500",whiteSpace:"nowrap",flexShrink:0}}>Listings</Link>
+          <Link href="/agents" style={{color:"#475569",textDecoration:"none",fontSize:"12px",fontWeight:"500",whiteSpace:"nowrap",flexShrink:0}}>Agents</Link>
+          <Link href="/contact" style={{color:"#475569",textDecoration:"none",fontSize:"12px",fontWeight:"500",whiteSpace:"nowrap",flexShrink:0}}>Contact</Link>
+          <Link href="/login" style={{background:"#1e40af",color:"white",padding:"6px 14px",borderRadius:"6px",textDecoration:"none",fontWeight:"600",fontSize:"12px",whiteSpace:"nowrap",flexShrink:0}}>Login</Link>
         </div>
       </nav>
 
